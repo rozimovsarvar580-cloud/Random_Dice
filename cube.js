@@ -4,6 +4,18 @@ let deg = [
     '180',
     '270',
     '360',
+     '180',
+    '90',
+    '360',
+    '270',
+    '90',
+     '180',
+    '270',
+    '360',
+     '90',
+    '180',
+    '270',
+    '360',
 ]
 let XY = [
     'X',
@@ -26,6 +38,5 @@ if(e.key === 'ArrowDown'){
 })
 console.log(Math.trunc(Math.random() * 4))
 window.addEventListener('click', () =>{
-console.log(`rotate${XY[Math.trunc(Math.random()*2)]}(${deg[Math.trunc(Math.random()*4)]}deg)`)
+console.log(`rotate${XY[Math.trunc(Math.random()*2)]}(${deg[Math.trunc(Math.random()*16)]}deg)`)
 })
-    
