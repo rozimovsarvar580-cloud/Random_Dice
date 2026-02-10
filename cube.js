@@ -1,4 +1,5 @@
 const cube = document.querySelector('.cube')
+const btn = document.querySelector('.btn')
 let deg = [
     '90',
     '180',
@@ -66,13 +67,8 @@ if(e.key === 'ArrowDown'){
 })
 
 console.log(Math.trunc(Math.random() * 4))
-window.addEventListener('click', () =>{
-cube.style.animation = `rotate-cube 5s linear`
-setTimeout(()=>{
-cube.style.transform = `rotate${XY[Math.trunc(Math.random()*22)]}(${deg[Math.trunc(Math.random()*24)]}deg)`
-cube.style.animation = ``
-},5000 )
-
+btn.addEventListener('click', () =>{
+console.log(`rotate${XY[Math.trunc(Math.random()*22)]}(${deg[Math.trunc(Math.random()*24)]}deg)`)
 })
 
 
