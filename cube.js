@@ -16,9 +16,37 @@ let deg = [
     '180',
     '270',
     '360',
+    '90',
+    '180',
+    '270',
+    '360',
+    '90',
+    '180',
+    '270',
+    '360',
 ]
 let XY = [
     'X',
+    'Y',
+    'X',
+    'Y',
+    'X',
+    'Y',
+    'X',
+    'Y',
+    'X',
+    'Y',
+    'X',
+    'Y',
+     'X',
+    'Y',
+     'X',
+    'Y',
+     'X',
+    'Y',
+     'X',
+    'Y',
+     'X',
     'Y',
 ]
 
@@ -36,7 +64,16 @@ if(e.key === 'ArrowDown'){
     cube.style.transform += 'rotateX(90deg)'
 }
 })
+
 console.log(Math.trunc(Math.random() * 4))
 window.addEventListener('click', () =>{
-console.log(`rotate${XY[Math.trunc(Math.random()*2)]}(${deg[Math.trunc(Math.random()*16)]}deg)`)
+cube.style.animation = `rotate-cube 5s linear`
+setTimeout(()=>{
+cube.style.transform = `rotate${XY[Math.trunc(Math.random()*22)]}(${deg[Math.trunc(Math.random()*24)]}deg)`
+cube.style.animation = ``
+},5000 )
+
 })
+
+
+
