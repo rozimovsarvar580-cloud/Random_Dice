@@ -1,145 +1,144 @@
-body{
-    display: flex;
-    justify-content: center;
-    padding-top: 200px;
-    background-color: burlywood;
+/* General styles */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
 }
-.cube{
-    transform-style: preserve-3d;
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #b33951;
+}
+/* Dice styles */
+.dice{
     position: relative;
     width: 100px;
     height: 100px;
+    transform-style: preserve-3d;
+    /* transform: rotateX(45deg) rotateY(45deg); */
+    animation: rolling 2s;
+    transition: 1s ease;
 }
-.side{
+.face{
     position: absolute;
-    width: 101px;
-    height: 101px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 5px solid #f6f3f0;
+    transform-style: preserve-3d;
+    background: linear-gradient( 145deg, #dddbd8, #fff);
 }
-.dot{
-    background-color: black;
-    width: 15px;
-    height: 15px;
-    border-radius: 50px;
-   
+.face::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #f6f3f0;
+    transform: translateZ(-1px);
+}
+.face::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #131210;
 }
 .front{
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transform: translateZ(50px);
 }
-.dot3{
-margin-left: 18px;
-margin-top: 12px;
-}
-.dot3 .dot{
-margin-bottom: 15px;
-}
 .back{
-     background-color: white;
-     display: grid;
-     grid-template-columns: auto auto;
-    transform: translateZ(-50px);
-}
-.d1{
-    margin-top: 10px;
-    margin-left: 20px;
-}
-.d2{
-    margin-top: 20px;
-    margin-left: 40px;
-}
-.d3{
-   margin-top: 20px;
-   margin-left: 60px;
-}
-.right{
-    background-color: white;
-    transform: translateX(50px) rotateY(90deg);
-}
-.d4{
-   margin-top: 10px;
-   margin-left: 15px;
-}
-.d5{
-    margin-top: -15px;
-    margin-left: 70px;
-}
-.d6{
-    margin-top: 55px;
-    margin-left: 12px;
-}
-.d7{
-   margin-top: -15px;
-   margin-left: 70px;
-}
-.left{
-    background-color: white;
-    transform: translateX(-50px) rotateY(-90deg);
-}
-.d8{
-margin-top: 10px;
-margin-left: 15px;
-}
-.d9{
-   margin-top: 50px;
-   margin-left: 70px;
+    transform: rotateX(180deg) translateZ(50px);
+    background-color: red;
 }
 .top{
-    background-color: white;
-    transform: translateY(-50px) rotateX(90deg)
+    transform: rotateX(90deg) translateZ(50px);
+    background-color: blue;
 }
 .bottom{
-    background-color: white;
-    transform: translateY(50px) rotateX(-90deg)
+    transform: rotateX(-90deg) translateZ(50px);
+    background-color: green;
 }
-.d10{
-margin-top: 10px;
-margin-left: 15px; 
+.right{
+    transform: rotateY(90deg) translateZ(50px);
+    background-color: yellow;
 }
-.d11{
-    margin-top: -15px;
-  margin-left: 70px;
+.left{
+    transform: rotateY(-90deg) translateZ(50px);
+    background-color: pink;
+}
 
-}
-.d12{
-    margin-top: 20px;
-  margin-left: 40px;
-}
-.d13{
- margin-top: 20px;
- margin-left: 15px;
-}
-.d14{
-margin-top: -15px;
-margin-left: 70px;
-}
-@keyframes rotate-cube {
-    0%{transform: rotateX(-45deg) rotateY(45deg)}
-    10%{transform: rotateX(-45deg) rotateY(90deg)}
-    15%{transform: rotateX(-45deg) rotateY(135deg)}
-    20%{transform: rotateX(-45deg) rotateY(180deg)}
-    25%{transform: rotateX(-45deg) rotateY(225deg)}
-    30%{transform: rotateX(-45deg) rotateY(270deg)}
-    35%{transform: rotateX(-45deg) rotateY(315deg)}
-    40%{transform: rotateX(-45deg) rotateY(360deg)}
-    45%{transform: rotateX(45deg) rotateY(360deg)}
-    50%{transform: rotateX(45deg) rotateY(315deg)}
-    55%{transform: rotateX(45deg) rotateY(270deg)}
-    60%{transform: rotateX(45deg) rotateY(225deg)}
-    65%{transform: rotateX(45deg) rotateY(180deg)}
-    70%{transform: rotateX(45deg) rotateY(135deg)}
-    75%{transform: rotateX(45deg) rotateY(90deg)}
-    80%{transform: rotateX(45deg) rotateY(45deg)}
-}
-.cube{
-  animation: rotate-cube 10s infinite ease;
-}
-.btn{
+/* testlash uchun pastga olib turamiz */
+ .dice{
+    transform: rotateX(90deg) translateZ(50px);
+ }
+.front::after{
+    width: 30px;
     height: 30px;
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-top: 110px;
-    margin-left: -90px;
+    background-color: red;
+    margin: -15px 0 0 -15px;
 }
+.back::after{
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0 #f00,
+    0 25px #0f0, 40px 25px #00f,
+    0 50px #ff0, 40px 50px #0ff;
+}
+.top::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 40px;
+}
+.bottom::after{
+    margin: -36px 0 0 -36px;
+    box-shadow: 26px 26px,
+                52px 52px,
+                52px 0,
+                0 52px;
+}
+.right::after{
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 0, 
+                0 40px,
+                40px 40px;
+}
+.left::after{
+    margin: -35px 0 0 -35px;
+    box-shadow: 25px 25px, 50px 50px;
+}
+
+ .container{
+    display: grid;
+    place-items: center;
+    width: 250px;
+    padding: 60px 0 40px;
+    border-radius: 30px;
+    background: #eeeeee;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+} 
+/* Roll Button styles */
+ .btn{
+    cursor: pointer;
+    color: #b33951;
+    margin-top: 60px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font: 700 16px 'Montserrat';
+    border: 2px solid #b33951;
+    transition: .4s;
+}
+.btn:hover{
+    color: #fff;
+    background: #b33951;
+}
+@keyframes rolling{
+    50%{
+        transform: rotateX(455deg) rotateY(455deg);
+    }
+} 

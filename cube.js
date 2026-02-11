@@ -1,75 +1,39 @@
-const cube = document.querySelector('.cube')
+const dice = document.querySelector('.dice')
 const btn = document.querySelector('.btn')
-let deg = [
-    '90',
-    '180',
-    '270',
-    '360',
-     '180',
-    '90',
-    '360',
-    '270',
-    '90',
-     '180',
-    '270',
-    '360',
-     '90',
-    '180',
-    '270',
-    '360',
-    '90',
-    '180',
-    '270',
-    '360',
-    '90',
-    '180',
-    '270',
-    '360',
-]
-let XY = [
-    'X',
-    'Y',
-    'X',
-    'Y',
-    'X',
-    'Y',
-    'X',
-    'Y',
-    'X',
-    'Y',
-    'X',
-    'Y',
-     'X',
-    'Y',
-     'X',
-    'Y',
-     'X',
-    'Y',
-     'X',
-    'Y',
-     'X',
-    'Y',
-]
-
-window.addEventListener('keydown',(e) =>{
-if(e.key === 'ArrowRight'){
-  cube.style.transform += 'rotateY(-90deg)'
+const randomDice = () =>{
+    const random = Math.floor(Math.random()*10)
+    if(random >=1 && random <= 6){
+       Roll(random)
+    }else{
+    randomDice()
+    }
 }
-if(e.key === 'ArrowLeft'){
-    cube.style.transform += 'rotateY(90deg)'
+const Roll = (random) =>{ 
+    dice.style.animation = 'rolling 4s'
+ setTimeout(()=>{
+    switch(random){
+    case 1 :
+        dice.style.transform = 'rotateX(0deg) rotateY(0deg)'
+        break
+    case 6 :
+        dice.style.transform = 'rotateX(180deg) rotateY(0deg)'
+        break
+    case 2 :
+        dice.style.transform = 'rotateX(-90deg) rotateY(0deg)'
+        break
+    case 5 :
+        dice.style.transform = 'rotateX(90deg) rotateY(0deg)'
+        break
+    case 3 :
+        dice.style.transform = 'rotateX(0deg) rotateY(90deg)'
+        break
+    case 4 :
+        dice.style.transform = 'rotateX(0deg) rotateY(-90deg)'
+        break
+    default:
+        break
 }
-if(e.key === 'ArrowUp'){
-    cube.style.transform += 'rotateX(-90deg)'
+dice.style.animation = 'none'
+ },4050)
 }
-if(e.key === 'ArrowDown'){
-    cube.style.transform += 'rotateX(90deg)'
-}
-})
-
-console.log(Math.trunc(Math.random() * 4))
-btn.addEventListener('click', () =>{
-console.log(`rotate${XY[Math.trunc(Math.random()*22)]}(${deg[Math.trunc(Math.random()*24)]}deg)`)
-})
-
-
-
+btn.addEventListener('click', randomDice)
