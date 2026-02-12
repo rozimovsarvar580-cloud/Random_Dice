@@ -1,55 +1,45 @@
-/* General styles */
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-}
 body{
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #b33951;
+    align-items: center;
+    background-color: #b33951;
 }
-/* Dice styles */
 .dice{
     position: relative;
-    width: 100px;
-    height: 100px;
     transform-style: preserve-3d;
-    /* transform: rotateX(45deg) rotateY(45deg); */
-    animation: rolling 2s;
-    transition: 1s ease;
+    width: 100px;
+    height: 100px; 
+  animation: rolling 4s;
+  transition: 2s ease;
 }
 .face{
+    transform-style: preserve-3d;
     position: absolute;
     width: 100%;
     height: 100%;
+    border:#f6f3f0 5px solid;
     border-radius: 20px;
-    border: 5px solid #f6f3f0;
-    transform-style: preserve-3d;
-    background: linear-gradient( 145deg, #dddbd8, #fff);
+    background: linear-gradient(145deg, #f6f3f0, #f1f1f1);
 }
 .face::before{
     position: absolute;
     content: '';
+    background-color:#f6f3f0;
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background: #f6f3f0;
     transform: translateZ(-1px);
 }
 .face::after{
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 50%;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #131210;
+position: absolute;
+content: '';
+top: 50%;
+left: 50%;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background-color: black;
 }
 .front{
     transform: translateZ(50px);
@@ -60,85 +50,69 @@ body{
 }
 .top{
     transform: rotateX(90deg) translateZ(50px);
-    background-color: blue;
+    background-color: aqua;
 }
 .bottom{
     transform: rotateX(-90deg) translateZ(50px);
-    background-color: green;
-}
-.right{
-    transform: rotateY(90deg) translateZ(50px);
-    background-color: yellow;
+    background-color: blue;
 }
 .left{
     transform: rotateY(-90deg) translateZ(50px);
-    background-color: pink;
+    background-color: chartreuse;
 }
-
-/* testlash uchun pastga olib turamiz */
- .dice{
-    transform: rotateX(90deg) translateZ(50px);
- }
+.right{
+    transform: rotateY(90deg) translateZ(50px);
+    background-color: black;
+}
 .front::after{
+    background-color: red;
     width: 30px;
     height: 30px;
-    background-color: red;
     margin: -15px 0 0 -15px;
 }
 .back::after{
-    margin: -35px 0 0 -30px;
-    box-shadow: 40px 0 #f00,
-    0 25px #0f0, 40px 25px #00f,
-    0 50px #ff0, 40px 50px #0ff;
+ margin: -40px 0 0 -40px;
+ box-shadow: 60px 0 0 , 0px 30px 0 , 60px 30px 0, 0 60px 0, 60px 60px 0;
 }
 .top::after{
-    margin: -30px 0 0 -30px;
-    box-shadow: 40px 40px;
+margin: 15px 0 0 15px;
+box-shadow: -50px -50px 0 ;
 }
 .bottom::after{
-    margin: -36px 0 0 -36px;
-    box-shadow: 26px 26px,
-                52px 52px,
-                52px 0,
-                0 52px;
-}
-.right::after{
-    margin: -30px 0 0 -30px;
-    box-shadow: 40px 0, 
-                0 40px,
-                40px 40px;
+margin: 20px 0 0 20px;
+box-shadow: -60px 0 0, -30px -30px 0 , -60px  -60px 0, 0 -60px;
 }
 .left::after{
-    margin: -35px 0 0 -35px;
-    box-shadow: 25px 25px, 50px 50px;
+    margin: 20px 0 0 20px;
+    box-shadow: -30px -30px 0, -60px -60px 0;
 }
-
- .container{
+.right::after{
+margin: 20px 0 0 20px;
+box-shadow: -60px 0 0 , -60px -60px 0, 0 -60px 0;
+}
+.container{
     display: grid;
-    place-items: center;
-    width: 250px;
-    padding: 60px 0 40px;
-    border-radius: 30px;
-    background: #eeeeee;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-} 
-/* Roll Button styles */
- .btn{
-    cursor: pointer;
+   place-items: center;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    background-color: white;
+}
+.btn{
+    height: 40px;
+    width: 100px;
+    background-color: white;
     color: #b33951;
-    margin-top: 60px;
-    padding: 6px 12px;
-    border-radius: 3px;
-    font: 700 16px 'Montserrat';
-    border: 2px solid #b33951;
-    transition: .4s;
+    border: #b33951 1px solid;
+    font: 700 25px;
+    border-radius: 10px;
+    transition: 1s;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .btn:hover{
-    color: #fff;
-    background: #b33951;
+    background-color: #b33951;
+    color: white;
 }
 @keyframes rolling{
-    50%{
-        transform: rotateX(455deg) rotateY(455deg);
-    }
-} 
+    50%{transform: rotateX(455deg) rotateY(455deg);}
+}
